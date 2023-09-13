@@ -12,10 +12,10 @@ function App() {
     setContador(contador + 1)
   }
   function restaItem() {
-    if (contador > 0)  {
+    if (contador > 0) {
       setContador(contador - 1)
     }
-    
+
   }
 
   return (
@@ -24,10 +24,10 @@ function App() {
       <ItemListContainer saludo={"Bienvenidos!!!"} />
       <br />
       <br />
-      <button onClick={sumaItem}>Agregar al Carrito</button>
-      <br />
-      <br />
-      <button onClick={restaItem}>Borra Item</button>
+      <div className="text-center">
+        <button className="btn btn-success btn-block m-2" onClick={sumaItem}>Agregar al Carrito</button>
+        <button className="btn btn-danger btn-block" onClick={restaItem}>Borra Item</button>
+      </div>
     </div>
   );
 }
