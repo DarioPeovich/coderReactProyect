@@ -1,11 +1,11 @@
 import React from 'react'
 import cartCarrito from "./assets/carrito.png"
 
-const CartWidget = () => {
+const CartWidget = ({contadorCarrito}) => {
   return (
     <div>
      <img src={cartCarrito} width={50} height={50} alt="img carrito"></img>
-     0
+     {contadorCarrito}
     </div>
   )
 }
