@@ -1,0 +1,75 @@
+
+[
+    {
+      "id": "1iev5huuullk0xukk",
+      "descripcion": "Arduino-2560-Rev3",
+      "img": "/img/Arduino-2560-Rev3.jpg",
+      "altImg":"Arduino-2560-Rev3.jpg",
+      "rubro": 1,
+      "stock": 2,
+      "precioFinal": 25500.8
+    },
+    {
+      "id": "7kn9qa0dpllk0xukk",
+      "descripcion": "Arduino Mega Gabinete Transparente",
+      "img": "/img/Arduino-Mega-Caja_Transparente.jpg", 
+      "altImg":"Arduino-Mega-Caja_Transparente.jpg",
+      "rubro": 2,
+      "stock": 0,
+      "precioFinal": 7000
+    },
+    {
+      "id": "8vofhemjnllk0xukk",
+      "descripcion": "Arduino Uno Rev03.02",
+      "img": "/img/Arduino1_Rev03_02_600x400.jpg", 
+      "altImg":"Img Arduino Uno Rev03.02",
+      "rubro": 1,
+      "stock": 1,
+      "precioFinal": 15000
+    },
+    {
+      "id": "4xeiy5aelllk0xukk",
+      "descripcion": "Arduino Esplora",
+      "img": "/img/arduino-esplora.jpg", 
+      "altImg":"Img Arduino Esplora",
+      "rubro": 1,
+      "stock": 3,
+      "precioFinal": 17000
+    },
+    {
+      "id": "5uj5s6o79llk0xukk",
+      "descripcion": "Arduino Audio Shield",
+      "img": "/img/audio-Shield-Arduino.jpg", 
+      "altImg":"Img Arduino Audio Shield",
+      "rubro": 4,
+      "stock": 3,
+      "precioFinal": 9000
+    },
+    {
+      "id": "lnnaqu1itllk0xukk",
+      "descripcion": "kit Arduino Mega 2560 R3 Superstartedkit",
+      "img": "/img/kit_arduinoMega2560_R3_superstartedkit_900x675.jpg", 
+      "altImg":"Img kit Arduino Mega 2560",
+      "rubro": 3,
+      "stock": 3,
+      "precioFinal": 35000
+    },
+    {
+      "id": "r4chfzazzllk0xukk",
+      "descripcion": "Display 4 digitos 7 segmentos",
+      "img": "/img/display4digitos_7segmentos.jpg", 
+      "altImg":"Img kit Display 4 digitos 7 segmentos",
+      "rubro": 2,
+      "stock": 20,
+      "precioFinal": 2000
+    },
+    {
+      "id": "o0361skqmllk0xukk",
+      "descripcion": "Adafruit Ultimate GPS shield",
+      "img": "/img/AdafruitUltimateGPS-shield.jpg", 
+      "altImg":"Img Adafruit Ultimate GPS shield",
+      "rubro": 4,
+      "stock": 20,
+      "precioFinal": 30000
+    }
+  ]
