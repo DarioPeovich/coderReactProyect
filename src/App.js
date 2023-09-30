@@ -28,7 +28,7 @@ function App() {
 
   return (
     <BrowserRouter className="App">
-      <NavBar/>
+      <NavBar contadorCarrito={contador}></NavBar>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/cart' element={<Cart />}/>

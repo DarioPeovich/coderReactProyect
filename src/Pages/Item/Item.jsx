@@ -11,19 +11,22 @@ function Item() {
   return (
     <div>
       {/* Utiliza clases de Bootstrap para hacer que la Card sea responsiva */}
+      <h2 className= "mt-3 bg-warning text-white text-center">Detalle del Producto</h2>
       <Container className="mt-3">
         <Row xs={1} md={2} lg={4}>
+        
           <Card className="mb-3 mx-auto">
             <Card.Img variant="top" src={producto.img} alt="" className="mt-3"></Card.Img>
             <Card.Body className="text-center">
               <Card.Title>{producto.descripcion}</Card.Title>
               <Card.Text>Precio: {producto.precioFinal}</Card.Text>
+              <Card.Text>stock: {producto.stock}</Card.Text>
               <Button variant="primary">
                 <Link
                   to={`/products/${producto.id}`}
                   style={{ color: "white" }}
                 >
-                  Comprar
+                  Agregar al Carrito
                 </Link>
               </Button>
             </Card.Body>
@@ -36,7 +39,7 @@ function Item() {
 
 export default Item;
 
-{
+//{
   /* <div className="d-flex flex-column h-100">
 <Card key={producto.id} className="h-100 mb-3 rounded">
   <Card.Img
@@ -67,4 +70,4 @@ export default Item;
   </Card.Body>
 </Card>
 </div> */
-}
+//}

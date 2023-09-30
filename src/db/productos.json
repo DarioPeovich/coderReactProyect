@@ -7,6 +7,7 @@
       "altImg":"Arduino-2560-Rev3.jpg",
       "rubro": 1,
       "stock": 2,
+      "promocionId": 3,
       "precioFinal": 25500.8
     },
     {
@@ -16,6 +17,7 @@
       "altImg":"Arduino-Mega-Caja_Transparente.jpg",
       "rubro": 2,
       "stock": 0,
+      "promocionId": 3,
       "precioFinal": 7000
     },
     {
@@ -25,6 +27,7 @@
       "altImg":"Img Arduino Uno Rev03.02",
       "rubro": 1,
       "stock": 1,
+      "promocionId": 3,
       "precioFinal": 15000
     },
     {
@@ -34,6 +37,7 @@
       "altImg":"Img Arduino Esplora",
       "rubro": 1,
       "stock": 3,
+      "promocionId": 3,
       "precioFinal": 17000
     },
     {
@@ -43,7 +47,8 @@
       "altImg":"Img Arduino Audio Shield",
       "rubro": 4,
       "stock": 3,
-      "precioFinal": 9000
+      "promocionId": 2,
+      "precioFinal": 19000
     },
     {
       "id": "lnnaqu1itllk0xukk",
@@ -52,6 +57,7 @@
       "altImg":"Img kit Arduino Mega 2560",
       "rubro": 3,
       "stock": 3,
+      "promocionId": 2,
       "precioFinal": 35000
     },
     {
@@ -61,6 +67,7 @@
       "altImg":"Img kit Display 4 digitos 7 segmentos",
       "rubro": 2,
       "stock": 20,
+      "promocionId": 2,
       "precioFinal": 2000
     },
     {
@@ -70,6 +77,7 @@
       "altImg":"Img Adafruit Ultimate GPS shield",
       "rubro": 4,
       "stock": 20,
+      "promocionId": 2,
       "precioFinal": 30000
     }
   ]

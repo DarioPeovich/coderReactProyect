@@ -1,33 +1,30 @@
 import React from "react";
-
+import { getProductos } from "../../../src/asynMock";
 import Listado from "../../components/Listado/Listado";
-import arrayProductos from "../../db/productos.json"; //Atencion las imagenes locales para que puedan ser consumidas, deben estar dentro de la carpeta public,
-// y si están dentro de una carpeta img esta debe residir en public. No anda si se alojan en otra carpeta
 import { useEffect, useState } from "react";
+import { Toast } from "react-bootstrap";
 
 function Productos() {
-  const getArchJsonProductos = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(arrayProductos);
-      }, 1000);
-    });
-  };
+  const [productos, setProductos] = useState();
+  const [loading, setLoading] = useState(true); // Estado para controlar la carga
 
   useEffect(() => {
-    //  const prueba = getArchJsonProductos()
-    //   prueba
-    getArchJsonProductos()
+    setLoading(true);
+    getProductos()
       .then((data) => {
         setProductos(data);
+        setLoading(false);
       })
       .catch((error) => {});
   }, []);
 
-  const [productos, setProductos] = useState();
-
   return (
     <div>
+      {/* Toast de carga */}
+      <Toast show={loading} animation={false}>
+        <Toast.Body>Cargando productos...</Toast.Body>
+      </Toast>
+
       <Listado productos={productos} />
     </div>
   );

@@ -5,11 +5,12 @@ import CartWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
 
 function NavBar({contadorCarrito}) {
-  if (contadorCarrito===undefined) { contadorCarrito = 0}
+ // if (contadorCarrito===undefined) { contadorCarrito = 0}
 
   return (
     <>
       <Container>
+      
         <img
           src="/img/electronica-BANNER.jpg"
           alt=""
