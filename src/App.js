@@ -8,6 +8,7 @@ import Home from "./Pages/Home/Home";
 import Productos from "./Pages/Productos/Productos";
 import Cart from "./Pages/Cart/Cart";
 import Item from "./Pages/Item/Item";
+import Footer from "./components/Footer/Footer";
 //import './App.css';
 
 
@@ -35,6 +36,7 @@ function App() {
         <Route path='/products' element={<Productos/>}/>
         <Route path='/products/:itemId' element={<Item/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
@@ -42,19 +44,19 @@ function App() {
 export default App;
 
 
-//***OLD */
-{/* <div>
-<NavBar contadorCarrito={contador}></NavBar>
-<ItemListContainer saludo={"Bienvenidos!!!"} />
-<br />
-<br />
-<div className="text-center">
-  <button className="btn btn-success btn-block m-2" onClick={sumaItem}>
-    Agregar al Carrito
-  </button>
-  <button className="btn btn-danger btn-block" onClick={restaItem}>
-    Borra Item
-  </button>
-</div>
-<Listado productos={productos} />
-</div> */}
+
+// {/* <div>
+// <NavBar contadorCarrito={contador}></NavBar>
+// <ItemListContainer saludo={"Bienvenidos!!!"} />
+// <br />
+// <br />
+// <div className="text-center">
+//   <button className="btn btn-success btn-block m-2" onClick={sumaItem}>
+//     Agregar al Carrito
+//   </button>
+//   <button className="btn btn-danger btn-block" onClick={restaItem}>
+//     Borra Item
+//   </button>
+// </div>
+// <Listado productos={productos} />
+// </div> */}
