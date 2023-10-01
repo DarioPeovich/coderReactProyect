@@ -15,7 +15,7 @@ function Item() {
       <Container className="mt-3">
         <Row xs={1} md={2} lg={4}>
         
-          <Card className="mb-3 mx-auto">
+          <Card className="mb-3 mx-auto cardCss">
             <Card.Img variant="top" src={producto.img} alt="" className="mt-3"></Card.Img>
             <Card.Body className="text-center">
               <Card.Title>{producto.descripcion}</Card.Title>

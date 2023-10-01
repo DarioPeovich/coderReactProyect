@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import "./Listado.css"
+
 
 const Listado = ({ productos }) => {
   //console.log(productos)
@@ -12,7 +14,7 @@ const Listado = ({ productos }) => {
           {productos.map((producto) => (
             <Col>
               <div className="d-flex flex-column h-100">
-                <Card key={producto.id} className="h-100 mb-3">
+                <Card key={producto.id} className="h-100 mb-3 cardCss">
                   <Card.Img
                     variant="top"
                     src={producto.img}
