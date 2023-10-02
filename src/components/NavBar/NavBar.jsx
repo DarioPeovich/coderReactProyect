@@ -14,7 +14,7 @@ function NavBar({contadorCarrito}) {
         <img
           src="/img/electronica-BANNER.jpg"
           alt=""
-          className="img-fluid" // Clase para ajustar el ancho al 100%
+          className="mt-1 img-fluid" // Clase para ajustar el ancho al 100%
           style={{ maxHeight: '200px' }} // Establece la altura máxima en píxeles
         />
       </Container>

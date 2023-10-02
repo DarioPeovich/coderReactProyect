@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getItemById } from "../../Misc/Items";
 import { Button, Card, Container, Row } from "react-bootstrap";
@@ -7,11 +7,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Item() {
   const { itemId } = useParams();
   const producto = getItemById(itemId);
+  const [cantidad, setCantidad] = useState(1);
+  const incrementarCantidad = () => {
+    if (cantidad < producto.stock) {
+      setCantidad(cantidad + 1);
+    }
+  };
 
+  const decrementarCantidad = () => {
+    if (cantidad > 1) {
+      setCantidad(cantidad - 1);
+    }
+  };
+  const h2Style = {
+    backgroundColor: "#FF8000"
+  }
   return (
     <div>
-      {/* Utiliza clases de Bootstrap para hacer que la Card sea responsiva */}
-      <h2 className= "mt-3 bg-warning text-white text-center">Detalle del Producto</h2>
+      <h2 style={h2Style} className= "mt-3 text-white text-center">Detalle del Producto</h2>
       <Container className="mt-3">
         <Row xs={1} md={2} lg={4}>
         
@@ -21,6 +34,16 @@ function Item() {
               <Card.Title>{producto.descripcion}</Card.Title>
               <Card.Text>Precio: {producto.precioFinal}</Card.Text>
               <Card.Text>stock: {producto.stock}</Card.Text>
+
+              <div className="mb-3">
+                <p>Cantidad:</p>
+                <div className="d-flex justify-content-center align-items-center">
+                  <button className="btn btn-secondary btn-sm" onClick={decrementarCantidad}>-</button>
+                  <span className="mx-2">{cantidad}</span>
+                  <button className="btn btn-secondary btn-sm" onClick={incrementarCantidad}> + </button>
+                </div>
+              </div>
+
               <Button variant="primary">
                 <Link
                   to={`/products/${producto.id}`}

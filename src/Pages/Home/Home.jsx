@@ -34,6 +34,15 @@ function Home() {
       .catch((error) => {});
   }, []);
 
+    // Estilo para los h2
+    const h2Style = {
+      backgroundColor: "#FF8000",
+      color: "white",
+      textAlign: "center",
+      padding: "10px",
+      marginTop: "20px",
+    };
+
   return (
     <div>
       {/* Toast de carga */}
@@ -45,9 +54,9 @@ function Home() {
         <Toast.Body>Cargando productos en Oferta...</Toast.Body>
       </Toast>
 
-      <h2 className="mt-3 bg-warning text-white text-center">Novedades</h2>
+      <h2 style={h2Style}>Novedades</h2>
       <Listado productos={productosNovedades} />
-      <h2 className="mt-3 bg-warning text-white text-center">Ofertas</h2>
+      <h2 style={h2Style}>Ofertas</h2>
       <Listado productos={productosOfertas} />
     </div>
   );
