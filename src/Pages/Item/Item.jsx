@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { getItemById } from "../../Misc/Items";
 import { Button, Card, Container, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import "../../App.css"
 function Item() {
   const { itemId } = useParams();
   const producto = getItemById(itemId);
@@ -40,11 +40,11 @@ function Item() {
                 <div className="d-flex justify-content-center align-items-center">
                   <button className="btn btn-secondary btn-sm" onClick={decrementarCantidad}>-</button>
                   <span className="mx-2">{cantidad}</span>
-                  <button className="btn btn-secondary btn-sm" onClick={incrementarCantidad}> + </button>
+                  <button className="btn btn-secondary btn-sm " onClick={incrementarCantidad}> + </button>
                 </div>
               </div>
 
-              <Button variant="primary">
+              <Button variant="primary" className="botonComprar">
                 <Link
                   to={`/products/${producto.id}`}
                   style={{ color: "white" }}

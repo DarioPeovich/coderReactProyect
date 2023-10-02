@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import "./Listado.css"
-
+import "../../App.css"
 
 const Listado = ({ productos }) => {
   //console.log(productos)
@@ -28,7 +28,7 @@ const Listado = ({ productos }) => {
                       <Card.Text>Precio: $ {producto.precioFinal}</Card.Text>
                     </div>
                     <div className="mt-auto">
-                      <Button variant="primary">
+                      <Button variant="primary" className="botonComprar">
                         {/* Utiliza Link para envolver el botón */}
                         <Link
                           to={`/products/${producto.id}`}

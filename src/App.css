@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.botonComprar {
+  background-color: #1F3961;
+}
