@@ -14,18 +14,6 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   const [contador, setContador] = useState(0);
-  
-
-  function sumaItem() {
-    setContador(contador + 1);
-  }
-  function restaItem() {
-    if (contador > 0) {
-      setContador(contador - 1);
-    }
-  }
-
-
 
   return (
     <BrowserRouter className="App">
@@ -60,3 +48,12 @@ export default App;
 // </div>
 // <Listado productos={productos} />
 // </div> */}
+
+// function sumaItem() {
+//   setContador(contador + 1);
+// }
+// function restaItem() {
+//   if (contador > 0) {
+//     setContador(contador - 1);
+//   }
+// }
