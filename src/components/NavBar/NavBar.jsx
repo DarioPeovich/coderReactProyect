@@ -3,10 +3,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
+import { CarritoContext } from '../../Context/CarritoContext';
+import { useContext } from 'react';
 
 function NavBar({contadorCarrito}) {
- // if (contadorCarrito===undefined) { contadorCarrito = 0}
-
   return (
     <>
       <Container>
@@ -31,7 +31,9 @@ function NavBar({contadorCarrito}) {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <CartWidget contadorCarrito={contadorCarrito}></CartWidget>
+      <NavLink to="/cart" className="nav-link"> {/* Enlace a la ruta "/cart" */}
+          <CartWidget></CartWidget>
+        </NavLink>
       
     </Navbar>
     </>

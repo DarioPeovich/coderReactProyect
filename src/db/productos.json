@@ -8,7 +8,8 @@
       "rubro": 1,
       "stock": 2,
       "promocionId": 3,
-      "precioFinal": 25500.8
+      "precioFinal": 25500.8,
+      "cantCarrito": 0
     },
     {
       "id": "7kn9qa0dpllk0xukk",
@@ -18,7 +19,8 @@
       "rubro": 2,
       "stock": 0,
       "promocionId": 3,
-      "precioFinal": 7000
+      "precioFinal": 7000,
+      "cantCarrito": 0
     },
     {
       "id": "8vofhemjnllk0xukk",
@@ -28,7 +30,8 @@
       "rubro": 1,
       "stock": 1,
       "promocionId": 3,
-      "precioFinal": 15000
+      "precioFinal": 15000,
+      "cantCarrito": 0
     },
     {
       "id": "4xeiy5aelllk0xukk",
@@ -38,7 +41,8 @@
       "rubro": 1,
       "stock": 3,
       "promocionId": 3,
-      "precioFinal": 17000
+      "precioFinal": 17000,
+      "cantCarrito": 0
     },
     {
       "id": "5uj5s6o79llk0xukk",
@@ -48,7 +52,8 @@
       "rubro": 4,
       "stock": 3,
       "promocionId": 2,
-      "precioFinal": 19000
+      "precioFinal": 19000,
+      "cantCarrito": 0
     },
     {
       "id": "lnnaqu1itllk0xukk",
@@ -58,7 +63,8 @@
       "rubro": 3,
       "stock": 3,
       "promocionId": 2,
-      "precioFinal": 35000
+      "precioFinal": 35000,
+      "cantCarrito": 0
     },
     {
       "id": "r4chfzazzllk0xukk",
@@ -68,7 +74,8 @@
       "rubro": 2,
       "stock": 20,
       "promocionId": 2,
-      "precioFinal": 2000
+      "precioFinal": 2000,
+      "cantCarrito": 0
     },
     {
       "id": "o0361skqmllk0xukk",
@@ -78,6 +85,7 @@
       "rubro": 4,
       "stock": 20,
       "promocionId": 2,
-      "precioFinal": 30000
+      "precioFinal": 30000,
+      "cantCarrito": 0
     }
   ]

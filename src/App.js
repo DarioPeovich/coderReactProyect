@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 //import {getArchJsonProductos} from "./asynMock.js"
@@ -9,29 +9,29 @@ import Productos from "./Pages/Productos/Productos";
 import Cart from "./Pages/Cart/Cart";
 import Item from "./Pages/Item/Item";
 import Footer from "./components/Footer/Footer";
+import { CarritoProvider } from "./Context/CarritoContext";
 //import './App.css';
-
 
 function App() {
   const [contador, setContador] = useState(0);
 
   return (
     <BrowserRouter className="App">
-      <NavBar contadorCarrito={contador}></NavBar>
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/cart' element={<Cart />}/>
-        <Route path='/products' element={<Productos/>}/>
-        <Route path='/products/:itemId' element={<Item/>}/>
-      </Routes>
-      <Footer/>
+      <CarritoProvider>
+        <NavBar contadorCarrito={contador}></NavBar>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/products" element={<Productos />} />
+          <Route path="/products/:itemId" element={<Item />} />
+        </Routes>
+      </CarritoProvider>
+      <Footer />
     </BrowserRouter>
   );
 }
 
 export default App;
-
-
 
 // {/* <div>
 // <NavBar contadorCarrito={contador}></NavBar>
