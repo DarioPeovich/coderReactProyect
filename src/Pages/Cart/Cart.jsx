@@ -1,17 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { CarritoContext } from '../../Context/CarritoContext';
 import { ListGroup, Button, Image, Container, Row, Col } from 'react-bootstrap';
 
 function Cart() {
-  const { productosCarrito, eliminarProducto } = useContext(CarritoContext);
-console.log(productosCarrito)
+  const { productosCarrito, eliminarProducto, incrementarCantidad, decrementarCantidad } = useContext(CarritoContext);
+
+
   return (
     <Container className="mt-3">
       <Row>
         <Col md={7}>
           <div>
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-              <h2>Cart</h2>
+              <h2>Carrito</h2>
             </div>
             <ListGroup>
               {productosCarrito.length > 0 ? (
@@ -19,11 +20,17 @@ console.log(productosCarrito)
                   <ListGroup.Item key={item.id} className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
                       <Image src={item.img} alt={item.descripcion} thumbnail className="mr-3" style={{ maxWidth: '100px' }} />
-                      <div >
+                      <div>
                         <h4>{item.descripcion}</h4>
                         <div className="d-flex align-items-center">
-                        <p>Precio: {item.precioFinal}</p>
-                        <p className='mx-2'>Cantidad: {item.cantCarrito}</p>
+                          <p className='mx-2'>Precio: {item.precioFinal}</p>
+                          <div className="d-flex align-items-center">
+                            <p className='mx-2'>Cant.:</p>
+                            <Button onClick={() => decrementarCantidad(item.id)} variant="secondary">-</Button>
+                            <p className='mx-2'>{item.cantCarrito}</p>
+                            <Button onClick={() => incrementarCantidad(item.id)} variant="primary">+</Button>
+                            <p className='mx-2'>Stock: {item.stock}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -40,9 +47,7 @@ console.log(productosCarrito)
         </Col>
         <Col md={5}>
           <div>
-            {/* Aquí puedes agregar el resumen de la compra */}
             <h2>Resumen de la Compra</h2>
-            {/* Agrega aquí los detalles del resumen, como total, impuestos, etc. */}
             <Button variant="primary" className="mt-3">Pagar</Button>
           </div>
         </Col>
@@ -54,17 +59,3 @@ console.log(productosCarrito)
 export default Cart;
 
 
-
-
-{/* <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
-<h4>Prueb {item.descripcion}</h4>
-<button style={{
-    backgroundColor: "rebeccapurple",
-    color: "white",
-    borderRadius: "5px",
-    padding: "10px",
-    cursor: "pointer",
-    border: "none",
-    margin: "10px"
-}} onClick={()=> eliminarProducto(item.id)}> Eliminar del carrito </button>
-</div> */}

@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { CarritoContext } from '../../Context/CarritoContext';
 import { useContext } from 'react';
 
-function NavBar({contadorCarrito}) {
+function NavBar({}) {
   return (
     <>
       <Container>

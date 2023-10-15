@@ -6,8 +6,8 @@ import { Toast } from "react-bootstrap";
 function Home() {
   const [productosNovedades, setProdNovedades] = useState();
   const [productosOfertas, setProdOfertas] = useState();
-  const [loadPromo, setLoadPromo] = useState(true); // Estado para controlar la carga
-  const [loadOfertas, setLoadOfertas] = useState(true); // Estado para controlar la carga
+  const [loadPromo, setLoadPromo] = useState(true); // Estado para controlar el Toast
+  const [loadOfertas, setLoadOfertas] = useState(true); // Estado para controlar el Toast
 
   useEffect(() => {
     //  const prueba = getArchJsonProductos()

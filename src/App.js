@@ -13,12 +13,11 @@ import { CarritoProvider } from "./Context/CarritoContext";
 //import './App.css';
 
 function App() {
-  const [contador, setContador] = useState(0);
 
   return (
     <BrowserRouter className="App">
       <CarritoProvider>
-        <NavBar contadorCarrito={contador}></NavBar>
+        <NavBar ></NavBar>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
@@ -33,27 +32,4 @@ function App() {
 
 export default App;
 
-// {/* <div>
-// <NavBar contadorCarrito={contador}></NavBar>
-// <ItemListContainer saludo={"Bienvenidos!!!"} />
-// <br />
-// <br />
-// <div className="text-center">
-//   <button className="btn btn-success btn-block m-2" onClick={sumaItem}>
-//     Agregar al Carrito
-//   </button>
-//   <button className="btn btn-danger btn-block" onClick={restaItem}>
-//     Borra Item
-//   </button>
-// </div>
-// <Listado productos={productos} />
-// </div> */}
 
-// function sumaItem() {
-//   setContador(contador + 1);
-// }
-// function restaItem() {
-//   if (contador > 0) {
-//     setContador(contador - 1);
-//   }
-// }

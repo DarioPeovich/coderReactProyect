@@ -4,6 +4,20 @@ import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {initializeApp} from "firebase/app";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBnE8dviQ1C8-wnvWp-ZdrL0cvNT52JQUk",
+  authDomain: "react-arduino-ff743.firebaseapp.com",
+  projectId: "react-arduino-ff743",
+  storageBucket: "react-arduino-ff743.appspot.com",
+  messagingSenderId: "794421413470",
+  appId: "1:794421413470:web:76b4bdae878e7d706396cf"
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
