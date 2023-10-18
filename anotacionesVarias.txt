@@ -1,0 +1,11 @@
+Rubros de Productos
+1: Microcontroladores
+2: Accesorios
+3: Kits
+4: Shields
+
+tipos Promociones para Productos
+1: Venta Normal
+2. Novedades
+3: Ofertas
+4: Discontinuos

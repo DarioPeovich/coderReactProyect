@@ -42,9 +42,12 @@ export const CarritoProvider = ({ children }) => {
 
     setCarrito(updatedCarrito);
   };
+  
+  // Calcular la suma total a pagar
+  const sumaTotal = carrito.reduce((total, item) => total + (item.precioFinal * item.cantCarrito), 0);
 
   return (
-    <CarritoContext.Provider value={{ productosCarrito: carrito, agregarCarrito: setCarrito, eliminarProducto: eliminarItem, totalcarrito: totalItemCar, incrementarCantidad, decrementarCantidad }}>
+    <CarritoContext.Provider value={{ productosCarrito: carrito, agregarCarrito: setCarrito, eliminarProducto: eliminarItem, totalcarrito: totalItemCar, incrementarCantidad, decrementarCantidad, carImporteTotal: sumaTotal}}>
       {children}
     </CarritoContext.Provider>
   );

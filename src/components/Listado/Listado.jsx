@@ -29,11 +29,8 @@ const Listado = ({ productos }) => {
                     </div>
                     <div className="mt-auto">
                       <Button variant="primary" className="botonComprar">
-                        {/* Utiliza Link para envolver el botón */}
-                        <Link
-                          to={`/products/${producto.id}`}
-                          style={{ color: "white" }}
-                        >
+                     
+                        <Link to={`/products/${producto.id}`} style={{ color: "white" }}>
                           Comprar
                         </Link>
                       </Button>

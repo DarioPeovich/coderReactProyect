@@ -27,8 +27,7 @@ function Productos() {
     getDocs(myquery).then( (res) => {
       setProductos(res.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
       setLoading(false);
-    }
-      )
+    })
   }, [])
 
 //************************************************************************
