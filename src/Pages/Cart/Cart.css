@@ -1,0 +1,11 @@
+.stock-label {
+    border: 2px solid blue;
+    padding: 5px;
+    display: inline-block;
+    margin: 0;
+  }
+  
+  .stock-value {
+    margin: 0;
+  }
+  

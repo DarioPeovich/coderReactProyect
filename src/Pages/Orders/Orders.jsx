@@ -1,12 +1,20 @@
 import React, { useContext, useState } from "react";
 import { CarritoContext } from "../../Context/CarritoContext";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  getFirestore,
+  updateDoc,
+} from "firebase/firestore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 function Orders() {
-  const { productosCarrito, totalcarrito, carImporteTotal } = useContext(CarritoContext);
+  const { productosCarrito, totalcarrito, carImporteTotal, agregarCarrito } =
+    useContext(CarritoContext);
   const [orderId, setOrderId] = useState("sinId");
 
   const [formData, setFormData] = useState({
@@ -29,31 +37,35 @@ function Orders() {
     e.preventDefault();
     // Envia el pedido a FireBase
     if (totalcarrito) {
-        crearOrden();
-        //Limpia el formulario después de enviar los datos si es necesario.
-        setFormData({
-          nombre: "",
-          apellido: "",
-          email: "",
-          telefono: "",
-        });       
+      crearOrden();
+      //Limpia el formulario después de enviar los datos si es necesario.
+      setFormData({
+        nombre: "",
+        apellido: "",
+        email: "",
+        telefono: "",
+      });
+      agregarCarrito([]);
+      //navigate("/productos");
     } else {
-        toast.error('El carrito está vacio. Ud. debe cargar su carrito', {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            });
+      toast.error("El carrito está vacio. Ud. debe cargar su carrito", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
-
-   
   };
-const mensajeOk = () => {
-    toast.success('Felicitaciones!!!. Su compra ha sido exitosa. Su ID. es: ' + orderId + ". Tome nota del mismo para el seguimiento del envío", {
+  const mensajeOk = (par_OrderId) => {
+    toast.success(
+      "Felicitaciones!!!. Su compra ha sido exitosa. Su ID. es: " +
+        par_OrderId +
+        ". Tome nota del mismo para el seguimiento del envío",
+      {
         position: "bottom-center",
         autoClose: false,
         hideProgressBar: false,
@@ -62,31 +74,51 @@ const mensajeOk = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
-}
-  const dataBase = getFirestore()
-  const ordersCollection = collection(dataBase, "orders")
+      }
+    );
+  };
+  const dataBase = getFirestore();
+  const ordersCollection = collection(dataBase, "orders");
 
   const crearOrden = () => {
-    const total = productosCarrito.reduce((acum, item) => acum + item.precioFinal, 0)
+    const total = productosCarrito.reduce(
+      (acum, item) => acum + item.precioFinal,
+      0
+    );
     const orderData = {
       buyer: {
         name: formData.nombre,
         apellido: formData.apellido,
         telefono: formData.telefono,
-        email: formData.email
+        email: formData.email,
       },
       items: [...productosCarrito],
-      total: total
-    }
-    //console.log("*****crearOrden*****")
-    //console.log(orderData)
-    addDoc(ordersCollection, orderData).then(({id}) => {
-        //console.log(id);
-        setOrderId(id);
-        mensajeOk();
-    })
-  }
+      total: total,
+    };
+    console.log("*****crearOrden*****");
+    console.log(orderData);
+    addDoc(ordersCollection, orderData).then(({ id }) => {
+      console.log(id);
+      setOrderId(id);
+      actualizarStkItems();
+      mensajeOk(id);
+      navigate("/productos");
+    });
+  };
+
+  //Actualizar item utiliza el array productosCarrito, donde tiene el id y la cantidad de cada Item comprado
+  const actualizarStkItems = () => {
+    //const ordersCollection = collection(dataBase, "productos");
+    productosCarrito.map((item) => {
+      const itemRef = doc(dataBase, "productos", item.id);
+      getDoc(itemRef).then((documento) => {
+        console.log(documento.data());
+        const newStock = documento.data().stock - item.cantCarrito;
+        updateDoc(itemRef, { stock: newStock });
+      });
+
+    });
+  };
 
   return (
     <>
@@ -98,7 +130,7 @@ const mensajeOk = () => {
               <h3>Suma Total a Pagar: ${carImporteTotal.toFixed(2)}</h3>
             </div>
           </div>
-          <div className= "col-md-6">
+          <div className="col-md-6">
             <div className="border p-4 shadow">
               <h2>Ingrese sus Datos</h2>
               <form onSubmit={handleSubmit}>

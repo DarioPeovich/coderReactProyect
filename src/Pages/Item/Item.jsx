@@ -13,6 +13,7 @@ function Item() {
   const [cantidad, setCantidad] = useState(1);
   const { productosCarrito, agregarCarrito } = useContext(CarritoContext);
   const [showToast, setShowToast] = useState(false);
+  const [showStockAlert, setShowStockAlert] = useState(false);
   const navigate = useNavigate(); // Obtiene la instancia de history
   
   //OBTENER UN DOCUMENTO POR ID DE FIREBASE
@@ -20,7 +21,7 @@ function Item() {
     const db = getFirestore();
     const itemRef = doc(db, "productos", itemId);
     getDoc(itemRef).then((documento) => {
-      console.log(documento.data());  
+      console.log("En Item: " + documento.data());  
       setProducto({id: documento.id, ...documento.data()});
       })
       .catch((error) => {
@@ -49,19 +50,23 @@ function Item() {
     const productoExistente = productosCarrito.find(
       (artic) => artic.id === producto.id
     );
-    if (!productoExistente) {
-      producto.cantCarrito = cantidad;
-      agregarCarrito([...productosCarrito, producto]);
-      // Vuelve a la página anterior
-      navigate(-1); // Utiliza navigate para volver atrás en el historial
+    if (producto.stock > 0) {
+      if (!productoExistente) {
+        producto.cantCarrito = cantidad;
+        agregarCarrito([...productosCarrito, producto]);
+        // Vuelve a la página anterior
+        navigate(-1); // Utiliza navigate para volver atrás en el historial
+      } else {
+        //ir al carrito
+        // Redirigir al usuario al componente Cart
+        setShowToast(true);
+        setTimeout(() => {
+          //el setTimeout es para que se vea el Toast, porque si no va al Componente Cart de una y no se ve.
+          navigate("/cart");
+        }, 2000);
+      }
     } else {
-      //ir al carrito
-      // Redirigir al usuario al componente Cart
-      setShowToast(true);
-      setTimeout(() => {
-        //el setTimeout es para que se vea el Toast, porque si no va al Componente Cart de una y no se ve.
-        navigate("/cart");
-      }, 2000);
+      setShowStockAlert(true);
     }
   };
 
@@ -76,6 +81,11 @@ function Item() {
   
     return (
       <div>
+        {showStockAlert && (
+        <div className="alert alert-danger" role="alert">
+          El producto está agotado. No se puede agregar al carrito.
+        </div>
+      )}
         <Toast
           show={showToast}
           onClose={() => setShowToast(false)}

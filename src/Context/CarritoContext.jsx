@@ -23,7 +23,10 @@ export const CarritoProvider = ({ children }) => {
     // Lógica para aumentar la cantidad de un producto en el carrito
     const updatedCarrito = carrito.map((producto) => {
       if (producto.id === id) {
-        return { ...producto, cantCarrito: producto.cantCarrito + 1 };
+        if (producto.cantCarrito < producto.stock) {
+          return { ...producto, cantCarrito: producto.cantCarrito + 1 };
+        }
+        
       }
       return producto;
     });
@@ -35,7 +38,10 @@ export const CarritoProvider = ({ children }) => {
     // Lógica para disminuir la cantidad de un producto en el carrito
     const updatedCarrito = carrito.map((producto) => {
       if (producto.id === id) {
-        return { ...producto, cantCarrito: producto.cantCarrito - 1 };
+        if ( producto.cantCarrito > 1) {
+          return { ...producto, cantCarrito: producto.cantCarrito - 1 };
+        }
+        
       }
       return producto;
     });
