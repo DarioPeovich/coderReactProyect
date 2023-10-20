@@ -46,7 +46,7 @@ function Cart() {
               {productosCarrito.length > 0 ? (
                 productosCarrito.map((item) => (
                   // d-flex align-items-center justify-content-between
-                  <div key={item.id} className=" bg-info">
+                  <div key={item.id} className=" border ">
                     <div className="d-flex align-items-center">
                       <Image
                         src={item.img}
@@ -58,8 +58,10 @@ function Cart() {
 
                         <h4>{item.descripcion}</h4>
                         {/* d-flex align-items-center justify-content-between */}
-                        <div className=" bg-primary-subtle">
+                        <div className=" ">
                           <p className="mx-2">Precio: {item.precioFinal}</p>
+                          {/* d-flex align-items-center */}
+
                           <div className="d-flex align-items-center">
                             <p className="mx-2">Cant.:</p>
                             <Button onClick={() => decrementarCantidad(item.id)} variant="secondary">
@@ -74,12 +76,13 @@ function Cart() {
                               <span className="stock-value">{item.stock}</span>
                             </p>
                           </div>
+
                         </div>
 
                       </div>  
                     </div>
-                   <div>
-                    <Button className="d-flex ml-auto mx-2" onClick={() => eliminarProducto(item.id)} variant="danger">
+                   <div className="d-flex justify-content-center align-items-center">
+                    <Button className="mt-2 mb-2" onClick={() => eliminarProducto(item.id)} variant="danger">
                       Eliminar
                     </Button>
                     </div>
