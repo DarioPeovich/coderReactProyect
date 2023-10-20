@@ -37,26 +37,28 @@ function Cart() {
   return (
     <Container className="mt-3">
       <Row>
-        <Col lg={7} md={12}> 
+        <Col md={12} lg={7} > 
           <div className="border p-4 shadow">
             <div className="text-center mb-3">
               <h2>Carrito</h2>
             </div>
-            <ListGroup>
+            <div>
               {productosCarrito.length > 0 ? (
                 productosCarrito.map((item) => (
-                  <ListGroup.Item key={item.id} className="d-flex align-items-center justify-content-between">
+                  // d-flex align-items-center justify-content-between
+                  <div key={item.id} className=" bg-info">
                     <div className="d-flex align-items-center">
                       <Image
                         src={item.img}
-                        alt={item.descripcion}
                         thumbnail
                         className="mr-3"
                         style={{ maxWidth: "100px" }}
                       />
                       <div>
+
                         <h4>{item.descripcion}</h4>
-                        <div className="d-flex align-items-center">
+                        {/* d-flex align-items-center justify-content-between */}
+                        <div className=" bg-primary-subtle">
                           <p className="mx-2">Precio: {item.precioFinal}</p>
                           <div className="d-flex align-items-center">
                             <p className="mx-2">Cant.:</p>
@@ -67,28 +69,31 @@ function Cart() {
                             <Button onClick={() => incrementarCantidad(item.id)} variant="primary">
                               +
                             </Button>
-                            <p className="mx-2 stock-label">
+                            <p className="mx-5 stock-label">
                               Stock:
                               <span className="stock-value">{item.stock}</span>
                             </p>
                           </div>
                         </div>
-                      </div>
+
+                      </div>  
                     </div>
-                    <Button onClick={() => eliminarProducto(item.id)} variant="danger">
+                   <div>
+                    <Button className="d-flex ml-auto mx-2" onClick={() => eliminarProducto(item.id)} variant="danger">
                       Eliminar
                     </Button>
-                  </ListGroup.Item>
+                    </div>
+                  </div>
                 ))
               ) : (
                 <div className="text-center">
                   <span>Debe agregar productos al carrito</span>
                 </div>
               )}
-            </ListGroup>
+            </div>
           </div>
         </Col>
-        <Col lg={5} md={12}> 
+        <Col md={12} lg={5} > 
           <div className="border p-4 shadow text-center">
             <h2>Resumen de la Compra</h2>
             <hr className="my-3" />
@@ -105,4 +110,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default Cart;  
