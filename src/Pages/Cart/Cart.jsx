@@ -56,13 +56,11 @@ function Cart() {
                         />
                       </Col>
                       <Col  md={12} lg={5}>
-                      {/* bg-secondary */}
                         <div class=" box">
                           <h4>{item.descripcion}</h4>
                         </div>
                       </Col>
                       <Col md={12} lg={3}>
-                      {/* bg-success */}
                         <div class=" box d-flex align-items-center">
                           <div className=" ">
                             <div>
@@ -88,7 +86,6 @@ function Cart() {
                         </div>
                       </Col>
                       <Col md={12} lg={2}>
-                      {/* bg-info */}
                         <div class="d-flex justify-content-center align-items-center box">
                           <p className="mx-1 stock-label">
                             Stock:{item.stock}

@@ -11,6 +11,7 @@ import Item from "./Pages/Item/Item";
 import Footer from "./components/Footer/Footer";
 import { CarritoProvider } from "./Context/CarritoContext";
 import Orders from "./Pages/Orders/Orders";
+import CompraMostrar from "./Pages/CompraMostrar/CompraMostrar";
 //import './App.css';
 
 function App() {
@@ -22,9 +23,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/products" element={<Productos />} />
-          <Route path="/products/:itemId" element={<Item />} />
+          <Route path="/products/:categoriaId" element={<Productos />} />
+          {/* <Route path="/products/:itemId" element={<Item />} /> */}
+          <Route path="/item/:itemId" element={<Item />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/compra/:orderId" element={<CompraMostrar />} />
         </Routes>
       </CarritoProvider>
       <Footer />

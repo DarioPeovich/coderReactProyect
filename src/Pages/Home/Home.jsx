@@ -10,20 +10,7 @@ function Home() {
   const [loadPromo, setLoadPromo] = useState(true); // Estado para controlar el Toast
   const [loadOfertas, setLoadOfertas] = useState(true); // Estado para controlar el Toast
 
-  // useEffect(() => {
-  //   //  const prueba = getArchJsonProductos()
-  //   //   prueba
-  //   const promocionId = 2;
-  //   getProductosPromo(promocionId)
-  //     .then((data) => {
-  //       setLoadPromo(true);
-  //       setProdNovedades(data);
-  //       setLoadPromo(false);
-  //     })
-  //     .catch((error) => {});
-  // }, []);
-
-  useEffect(() => {
+   useEffect(() => {
     const promocionId = 2;
     const db = getFirestore();
     const myquery = query(collection(db, "productos"), where("promocionId", "==", promocionId) );
@@ -43,18 +30,6 @@ function Home() {
     })
   }, []);
 
-  // useEffect(() => {
-  //   //  const prueba = getArchJsonProductos()
-  //   //   prueba
-  //   const promocionId = 3;
-  //   getProductosPromo(promocionId)
-  //     .then((data) => {
-  //       setLoadOfertas(true);
-  //       setProdOfertas(data);
-  //       setLoadOfertas(false);
-  //     })
-  //     .catch((error) => {});
-  // }, []);
 
     // Estilo para los h2
     const h2Style = {

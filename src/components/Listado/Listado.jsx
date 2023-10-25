@@ -30,7 +30,7 @@ const Listado = ({ productos }) => {
                     <div className="mt-auto">
                       <Button variant="primary" className="botonComprar">
                      
-                        <Link to={`/products/${producto.id}`} style={{ color: "white" }}>
+                        <Link to={`/item/${producto.id}`} style={{ color: "white" }}>
                           Comprar
                         </Link>
                       </Button>

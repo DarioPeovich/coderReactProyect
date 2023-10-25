@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+## Proyecto e-Commerce: Tienda de Electrónica
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Funcionalidad del proyecto
+    Proyecto con React JS, base de datos FireBase y React-BootStrap.
+    Desarrollo de un tienda de MicroControladores y sus accesorios.
 
-## Available Scripts
+### Descripcion del Sitio:
+    Se utilizan varios componentes, pero los principales son:
+    
+    * Listado (itemListContainer): Componente que obtiene los productos de Firebase, segun parametro por categorias y se muestran en el DOM via etiquetas Card.
 
-In the project directory, you can run:
+    * Home: Componente de inicio del sitio, donde se mostraran los articulos nuevos y en promoción, utilizando una categoria para tal fin en cada producto.
 
-### `npm start`
+    * Item: Componente que muestra el detalle del Producto, donde se da la opcion de agregar al carrito de compras. Se puede variar la cantidad a agregar,cantidad que va a ser validada contra el Stock disponible. 
+    No deja agregar un producto cuyo Stock sea cero, dando aviso al usuario de tal situación.
+    El detalle del producto se obtiene en el momento de mostrarlo, via funciones de FireBase.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    * Carrito de Compras: Componente anexado al NavBar, que va a ir indicando la cantidad de items que posee en su CartWidGet, y que al seleccionar el mismo va a mostrar los productos cargados y el Total de la compra, dando la posibilidad al usuario de Comprar los productos seleccionados, utilizando un boton de Continuar la compra. 
+    En este componente el Cliente podra eliminar productos del carrito y variar las cantidades a comprar; las cuales son validadas contra el Stock disponible.
+    Tambien se podra apreciar la variacion dinamica del Total a cobrar y las cantidades de los items involucrados en la compra.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    * Orders: Componente que solicitara los datos del Usuario para grabar la compra utilizando la base de datos FireBase
 
-### `npm test`
+    * CompraFinal: Componente que mostrara el Id. de compra para que el usuario pueda realizar un seguiemiento de la misma, y donde se visualizaran los productos la componen.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ### Descripciones tecnicas:
+        * Se utiliza el componente CarritoContext.jsx como manejador del Contexto de la App para compartir variables y funciones comunes a varios componentes.
 
-### `npm run build`
+        * Se utilizan las siguientes librerias externas:
+                * React BootStrap
+                * React Toastify
+        * Se actualiza el Stock de cada producto involucrado en cada compra, al finalizar la misma.
+### ## Para levantar el proyecto:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    Ejecutar los comandos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    * npm install
+    * npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    

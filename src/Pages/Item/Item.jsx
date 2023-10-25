@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-//import { getItemById } from "../../Misc/Items";
 import { Button, Card, Container, Row, Toast } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../App.css";
@@ -21,7 +20,7 @@ function Item() {
     const db = getFirestore();
     const itemRef = doc(db, "productos", itemId);
     getDoc(itemRef).then((documento) => {
-      console.log("En Item: " + documento.data());  
+      //console.log("En Item: " + documento.data());  
       setProducto({id: documento.id, ...documento.data()});
       })
       .catch((error) => {

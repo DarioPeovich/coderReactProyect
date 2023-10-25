@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 function Orders() {
   const { productosCarrito, totalcarrito, carImporteTotal, agregarCarrito } =
     useContext(CarritoContext);
-  const [orderId, setOrderId] = useState("sinId");
+  //const [orderId, setOrderId] = useState("sinId");
 
   const [formData, setFormData] = useState({
     nombre: "",
@@ -45,8 +45,7 @@ function Orders() {
         email: "",
         telefono: "",
       });
-      agregarCarrito([]);
-      //navigate("/productos");
+      agregarCarrito([]);   //Vacia el Carrito
     } else {
       toast.error("El carrito está vacio. Ud. debe cargar su carrito", {
         position: "bottom-center",
@@ -77,6 +76,7 @@ function Orders() {
       }
     );
   };
+
   const dataBase = getFirestore();
   const ordersCollection = collection(dataBase, "orders");
 
@@ -95,14 +95,18 @@ function Orders() {
       items: [...productosCarrito],
       total: total,
     };
-    console.log("*****crearOrden*****");
-    console.log(orderData);
+    //console.log("*****crearOrden*****");
+    //console.log(orderData);
     addDoc(ordersCollection, orderData).then(({ id }) => {
-      console.log(id);
-      setOrderId(id);
+      //console.log(id);
+      //setOrderId(id);
       actualizarStkItems();
       mensajeOk(id);
-      navigate("/productos");
+      setTimeout(() => { 
+        navigate(`/compra/${id}`);
+      }, 3000);
+      
+      
     });
   };
 
@@ -112,11 +116,10 @@ function Orders() {
     productosCarrito.map((item) => {
       const itemRef = doc(dataBase, "productos", item.id);
       getDoc(itemRef).then((documento) => {
-        console.log(documento.data());
+        //console.log(documento.data());
         const newStock = documento.data().stock - item.cantCarrito;
         updateDoc(itemRef, { stock: newStock });
       });
-
     });
   };
 
