@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CarritoContext } from "../../Context/CarritoContext";
-import {  Button, Image, Container, Row, Col } from "react-bootstrap";
+import { Button, Image, Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,6 +19,7 @@ function Cart() {
 
   const compraTerminar = () => {
     if (totalcarrito !== 0) {
+
       navigate("/orders");
     } else {
       toast.error("El carrito está vacío. Ud. debe cargar su carrito", {
@@ -48,14 +49,14 @@ function Cart() {
                 productosCarrito.map((item) => (
                   <div key={item.id} className=" border ">
                     <Row>
-                      <Col  md={12} lg={2}>
+                      <Col md={12} lg={2}>
                         <Image
                           src={item.img}
                           thumbnail
                           className=" img-fluid "
                         />
                       </Col>
-                      <Col  md={12} lg={5}>
+                      <Col md={12} lg={5}>
                         <div class=" box">
                           <h4>{item.descripcion}</h4>
                         </div>
@@ -64,7 +65,9 @@ function Cart() {
                         <div class=" box d-flex align-items-center">
                           <div className=" ">
                             <div>
-                            <p className="mx-2">Precio:$ {item.precioFinal.toFixed(2)}</p>
+                              <p className="mx-2">
+                                Precio:$ {item.precioFinal.toFixed(2)}
+                              </p>
                             </div>
                             <div className="d-flex stock-label">
                               <p className="mx-2">Cant.:</p>
@@ -87,12 +90,10 @@ function Cart() {
                       </Col>
                       <Col md={12} lg={2}>
                         <div class="d-flex justify-content-center align-items-center box">
-                          <p className="mx-1 stock-label">
-                            Stock:{item.stock}
-                          </p>
+                          <p className="mx-1 stock-label">Stock:{item.stock}</p>
                         </div>
                       </Col>
-                      
+
                       <div className="d-flex justify-content-center align-items-center">
                         <Button
                           className="mt-2 mb-2"

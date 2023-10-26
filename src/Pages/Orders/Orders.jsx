@@ -95,11 +95,7 @@ function Orders() {
       items: [...productosCarrito],
       total: total,
     };
-    //console.log("*****crearOrden*****");
-    //console.log(orderData);
     addDoc(ordersCollection, orderData).then(({ id }) => {
-      //console.log(id);
-      //setOrderId(id);
       actualizarStkItems();
       mensajeOk(id);
       setTimeout(() => { 
@@ -116,7 +112,7 @@ function Orders() {
     productosCarrito.map((item) => {
       const itemRef = doc(dataBase, "productos", item.id);
       getDoc(itemRef).then((documento) => {
-        //console.log(documento.data());
+        
         const newStock = documento.data().stock - item.cantCarrito;
         updateDoc(itemRef, { stock: newStock });
       });

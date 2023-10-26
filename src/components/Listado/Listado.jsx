@@ -6,7 +6,7 @@ import "./Listado.css"
 import "../../App.css"
 
 const Listado = ({ productos }) => {
-  //console.log(productos)
+  
   if (productos) {
     return (
       <Container>
